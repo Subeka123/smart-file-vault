@@ -1,0 +1,53 @@
+<mat-card class="upload-card shadow-lg">
+  <mat-card-header>
+    <mat-card-title>Upload Documents</mat-card-title>
+    <mat-card-subtitle>Drag and drop your files here or browse</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Modern Drop Zone -->
+    <div class="drop-zone" 
+         (click)="fileInput.click()" 
+         [class.active]="isDragging"
+         (dragover)="$event.preventDefault(); isDragging = true"
+         (dragleave)="isDragging = false"
+         (drop)="$event.preventDefault(); onFileSelected($event)">
+      
+      <div class="drop-zone-content" *ngIf="!selectedFile">
+        <mat-icon class="huge-icon">cloud_upload</mat-icon>
+        <p>Click or drag file to this area to upload</p>
+        <span class="support-text">Support for a single file upload.</span>
+      </div>
+
+      <!-- File Preview (Visible after selection) -->
+      <div class="file-preview" *ngIf="selectedFile">
+        <mat-icon color="primary">insert_drive_file</mat-icon>
+        <div class="file-info">
+          <span class="file-name">{{ selectedFile.name }}</span>
+          <span class="file-size">{{ (selectedFile.size / 1024).toFixed(2) }} KB</span>
+        </div>
+        <button mat-icon-button (click)="$event.stopPropagation(); removeSelectedFile()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Integrated Progress -->
+    <div class="progress-container" *ngIf="isUploading">
+      <mat-progress-bar mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+      <div class="progress-details">
+        <span>Uploading...</span>
+        <span>{{ uploadProgress }}%</span>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <input #fileInput type="file" hidden (change)="onFileSelected($event)" />
+    <button mat-flat-button color="primary" 
+            [disabled]="!selectedFile || isUploading" 
+            (click)="upload()">
+      Start Upload
+    </button>
+  </mat-card-actions>
+</mat-card>
