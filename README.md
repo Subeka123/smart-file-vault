@@ -1,47 +1,45 @@
-📁 Smart File Vault
+# Smart File Vault
 
 Secure full-stack file upload and management system built using Angular and Node.js with stream-based file handling.
 
-🚀 Tech Stack
-Frontend
+# Tech Stack
+# Frontend
     Angular
     Angular Material
     TypeScript
 
-Backend
+# Backend
     Node.js
     Express.js
     Stream-based uploads (Busboy)
 
-✨ Features
-    📤 File upload with real-time progress bar
-    📁 Local file storage
-    📊 Upload tracking using Angular HttpEvents
+# Features
+- File upload with real-time progress bar
+- Local file storage
+- Upload tracking using Angular HttpEvents
 
-📂 Project Structure
-    smart-file-vault/
-    ├── frontend/    # Angular application
-    ├── backend/     # Node.js API
-    └── README.md
+# Project Structure
+smart-file-vault/
+├── frontend/    # Angular application
+├── backend/     # Node.js API
+└── README.md
 
-⚙️ Getting Started
+# Getting Started
 
-1️⃣ Clone Repository
+# Clone Repository
     git clone https://github.com/<your-username>/smart-file-vault.git
     cd smart-file-vault
 
-Backend Setup
+# Backend Setup
     cd backend
     npm install
     npm run start
 
-Runs on:
-    http://localhost:4000
+- Runs on: http://localhost:4000
 
-Frontend Setup
+# Frontend Setup
     cd frontend
     npm install
     ng serve
 
-Runs on:
-    http://localhost:4200
+- Runs on: http://localhost:4200
